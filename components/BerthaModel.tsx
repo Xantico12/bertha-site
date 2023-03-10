@@ -53,9 +53,7 @@ type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
 export function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-  const { nodes, materials, animations } = useGLTF(
-    "/BerthaCar.glb"
-  ) as GLTFResult;
+  const { nodes, materials } = useGLTF("/BerthaCar.glb") as GLTFResult;
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">

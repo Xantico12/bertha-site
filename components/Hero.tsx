@@ -3,6 +3,8 @@
 import { Canvas, useLoader } from "@react-three/fiber";
 import Scene from "./Scene";
 import { motion } from "framer-motion";
+import { Suspense } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function HomePage() {
   const visible = { opacity: 1, y: 0, transition: { duration: 0.5 } };
@@ -41,8 +43,9 @@ export default function HomePage() {
         variants={itemVariants}
         className="h-[100vh] w-[100vw] pt-36 flex flex-col basis-full flex-1 justify-center text-center"
       >
-        {" "}
-        <Scene />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Scene />
+        </Suspense>
       </motion.div>
     </motion.div>
   );

@@ -17,7 +17,7 @@ const NavBar = () => {
           <h1 className="text-3xl font-bold">Bertha</h1>
           <div className="w-0 transition-all group-hover:w-full ease-in-out h-1 bg-green-700"></div>
         </Link>
-        <ul className="flex text-xl">
+        <ul className="flex text-xl ">
           <li className="p-6 group">
             <Link href="/map">Where are we?</Link>
             <div className="w-0 transition-all group-hover:w-full ease-in-out h-1 bg-green-700"></div>

@@ -3,6 +3,7 @@
 import {
   Environment,
   OrbitControls,
+  PerformanceMonitor,
   PerspectiveCamera,
   SoftShadows,
 } from "@react-three/drei";
@@ -10,10 +11,17 @@ import * as THREE from "three";
 import { useControls } from "leva";
 import { Model } from "./BerthaModel";
 import { Canvas } from "@react-three/fiber";
+import { round } from "lodash";
+import { useState } from "react";
 
 const Scene = () => {
+  const [dpr, setDpr] = useState(1);
+  const [loading, setLoading] = useState(true);
   return (
-    <Canvas shadows>
+    <Canvas shadows dpr={dpr}>
+      <PerformanceMonitor
+        onChange={({ factor }) => setDpr(round(0.5 + 1.5 * factor, 1))}
+      />
       <ambientLight intensity={0.5} />
       <directionalLight
         castShadow
